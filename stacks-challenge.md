@@ -62,11 +62,68 @@ Remember these steps for interview problems...
   * Input: `["(", "(", ")", ")", ")"]` => Output: `")"` (winner!)
   * Input: `["L", "L", "R", "R", "R"]` => Output: `"R"` (winner!)
 
+	["L","L","R","R","R"] // Left Wins 
+  	["R","L","R","R","R"] // Right Wins
+  	["L","R","L","R"] // Tie 
+
   *No matter what format you choose, make sure you have at least three examples before you start coding!*
 
 2. Write pseudo-code to solve your problem, and use your three input-output pairs to check that the pseudo-code does what you expect.
 
+	// Total L's and R's 
+	// Check order of the "L" and "R"
+	// We need to make at least one stack 
+
 3. Once you have the pseudo-code working on your test cases, write code to implement the body of the function.
+
+	var arr1 = []
+	var arr2 = []
+	var arr3 = []
+	var arr4 = []
+	var arr5 = []
+
+function stackHug(array) {
+	var arr1 = ["left","right", "left"]
+var arr2 = ["left","right", "left", "right", "left", "right", "left"]
+
+
+function stackHug(array) {
+	// Make a stack 	
+	var stack = [ ];
+
+	//Total the incoming array 
+	var total = array.length;
+
+
+	//Put stuff into the stack 
+	for(var i = 0; i < total; i++){
+		var currentElement = array[i];	
+		if (currentElement === "left"){
+			stack.push(currentElement);
+			
+			
+			} else {
+			if (stack.length === 0){
+				return console.log("Right Wins!")
+			}else {
+				stack.pop();	
+			}
+		
+			}		
+			
+	}
+	if (stack.length > 0){
+		console.log("Left Wins")
+	} else {
+		console.log("Its a tie!")
+	}
+
+}
+stackHug(arr2);
+
+
+}
+	
 
 4. Test your code with the input-ouput pairs.  Also try testing edge cases that you may have missed before.
 
